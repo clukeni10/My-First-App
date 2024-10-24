@@ -1,0 +1,49 @@
+*{
+      padding:0;
+      margin:0;
+}
+
+body{
+      background-color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: black;
+}
+
+div{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      width: 400px;
+      border: 1px solid blue;
+      height: 400px;
+      
+     
+}
+
+h1{
+      text-align: center;
+      color: blue;
+}
+input{
+      width: 150px;
+      height: 25px;
+      margin: 5px;
+      border: 1px solid blue;
+      border-radius: 5px;
+      color: black;
+}
+
+button{
+      width: 100px;
+      height: 25px;
+      border-radius: 5px;
+      border: 1px solid blue;
+      background-color: lightblue;
+      color: black;
+}
+
+img{
+      width: 100px;
+      height: 100px;
+}
