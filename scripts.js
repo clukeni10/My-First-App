@@ -25,6 +25,8 @@ document.getElementById('save').addEventListener('click', function(){
     }
    
     
+    let nomes = JSON.parse(localStorage.getItem('nomes')) || [];
+    let datas = JSON.parse(localStorage.getItem('datas')) || [];
 
 
 
