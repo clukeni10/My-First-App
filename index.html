@@ -4,32 +4,31 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>App #1</title>
-
       <link rel="stylesheet" href="style.css">
 </head>
 <body>
-      <div>
-            <h1>Welcome to my first app</h1>
+      <div class="content">
+            <h1>Insira os seus dados</h1>
 
-            <label for="">Digite o seu nome:</label> <br>
-            <input type="text" id="nome"> <br>
+           
+            <input type="text" id="nome" placeholder="Nome"><br>
+            <input type="date" id="data"><br>
+            <input type="file" id="upload" accept="image/*"><br>
 
-            <label for="">Digite a sua data de nascimento:</label> <br>
-            <input type="date" name="data" id="data" > <br>
-
-            <label for="">Faça o upload de uma imagem sua:</label> <br>
-            <input type="file" id="inputImagem" accept="image/*"> <br>
-
-            <button onclick="display()"; onclick="salvarImagem()">Enviar</button>
+            <button id="save">Enviar</button>
+            <button  id="button" >Mostrar</button>
+            <button id="reset">Resetar</button>
             
-
-            <h2 id="nome-usr"></h2>
-            <h2 id="data-nascimento"></h2>
-            <img id="imagemExibida" style="max-width: 300px; display: block;">
+            <br>
+            
+            
+            <ul id="nomesSalvos"></ul>
+            <ul id="datasSalvas"></ul>
+            <h2 id="idade"></h2>
+           <div id="preview"></div>
             
       </div>
-      
 
-<script src="scripts.js"></script>
+      <script src="scripts.js"></script>
 </body>
 </html>
