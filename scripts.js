@@ -31,14 +31,17 @@ function save() {
         const reader = new FileReader();
 
         reader.onloadend = function () {
-            imagens.push(reader.result);
+            const id = imagens.length ? imagens[imagens.length - 1].id + 1 : 1;
+            imagens.push({ id, url: reader.result });
             localStorage.setItem('imagens', JSON.stringify(imagens));
-            show();  // Atualizar a exibição
+           // Atualizar a exibição
         };
         reader.readAsDataURL(file);
+        
     } else {
         alert('Por favor, escolha um arquivo de imagem.');
     }
+    show(); 
 }
 
 // Função para exibir os dados na tabela
@@ -52,6 +55,7 @@ function show() {
 
     nomesSalvos.forEach((nome, index) => {
         const idade = calcularIdade(datasSalvas[index]);
+        const imgUrl = imagens[index] ? imagens[index].url : '';
 
         // Criar nova linha na tabela
         const novaLinha = document.createElement('tr');
@@ -60,12 +64,36 @@ function show() {
             <td>${datasSalvas[index]}</td>
             <td>${idade} anos</td>
             <td>
-                <img src="${imagens[index] || ''}" 
+                <img src="${imgUrl}" 
                      style="max-width: 100px; max-height: 100px; border-radius: 5px;" />
-            </td>`
+ 
+            </td>
         ;
+
+            <td><button class="Delete" onclick="dele(${index})">Deletar</button></td>
+        `;
+
         corpoTabela.appendChild(novaLinha);
     });
+}
+
+function dele(index){
+    let nomes = JSON.parse(localStorage.getItem('nomes')) || [];
+    let datas = JSON.parse(localStorage.getItem('datas')) || [];
+    let imagens = JSON.parse(localStorage.getItem('imagens')) || [];
+
+    // Remover os itens pelo índice
+    nomes.splice(index, 1);
+    datas.splice(index, 1);
+    imagens.splice(index, 1);
+
+    // Atualizar o localStorage
+    localStorage.setItem('nomes', JSON.stringify(nomes));
+    localStorage.setItem('datas', JSON.stringify(datas));
+    localStorage.setItem('imagens', JSON.stringify(imagens));
+
+    // Atualizar a exibição
+    show();
 }
 
 // Função para calcular a idade
