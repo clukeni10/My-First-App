@@ -66,9 +66,13 @@ function show() {
             <td>
                 <img src="${imgUrl}" 
                      style="max-width: 100px; max-height: 100px; border-radius: 5px;" />
+ 
             </td>
+        ;
+
             <td><button class="Delete" onclick="dele(${index})">Deletar</button></td>
         `;
+
         corpoTabela.appendChild(novaLinha);
     });
 }
@@ -118,4 +122,4 @@ document.getElementById('reset').addEventListener('click', function () {
     localStorage.clear();
 
     document.getElementById('corpoTabela').innerHTML = '';
-});
+}); 
